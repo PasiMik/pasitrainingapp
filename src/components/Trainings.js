@@ -9,8 +9,8 @@ import { ModeComment } from '@mui/icons-material';
 function Trainings() {
     const[trainings, setTrainings] = useState([])
     const[columnDefs] = useState([
-        {field: 'date', headerName:'DATE', sortable: true, filter: true, floatingFilter: true, cellRenderer:(data) => {return (new Date(data.value)).toLocaleDateString("fi-FI") 
-                                                                                                                        +" " + (new Date(data.value)).toLocaleTimeString("fi-FI", {timeStyle: "short"})}},
+        {field: 'date', headerName:'DATE AND TIME', sortable: true, filter: true, floatingFilter: true, cellRenderer:(data) => {return (new Date(data.value)).toLocaleDateString("fi-FI") 
+                                                                                                                        +" klo. " + (new Date(data.value)).toLocaleTimeString("fi-FI", {timeStyle: "short"})}},
         {field: 'duration', headerName:'DURATION IN MIN', sortable: true, filter: true, floatingFilter: true},
         {field: 'activity', headerName:'ACTIVITY', sortable: true, filter: true, floatingFilter: true},
         {field: 'customer.firstname', headerName:'FIRSTNAME', sortable: true, filter: true, floatingFilter: true}, 

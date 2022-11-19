@@ -8,6 +8,7 @@ import Tabs from'@mui/material/Tabs';
 import Tab from'@mui/material/Tab';
 import Customers from './components/Customers';
 import Trainings from './components/Trainings';
+import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 
 
 
