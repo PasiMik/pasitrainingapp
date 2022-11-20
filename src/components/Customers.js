@@ -7,7 +7,7 @@ import AddCustomer from './AddCustomer';
 import EditCustomer from './EditCustomer';
 import { Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import Snackbar from '@mui/material/Snackbar';
+import AddTraining from './AddTraining';
 
 
 function Customers() {
@@ -20,6 +20,10 @@ function Customers() {
       {field: 'city', headerName:'CITY', sortable: true, filter: true, floatingFilter: true},
       {field: 'email', headerName:'EMAIL', sortable: true, filter: true, floatingFilter: true},
       {field: 'phone', headerName:'PHONE', sortable: true, filter: true, floatingFilter: true},
+      {
+        width: 225,
+        cellRenderer: params => <AddTraining data={params.data} addTraining ={addTraining}/>
+      },
       {
         width: 200,
         cellRenderer: params => <EditCustomer data={params.data} updateCustomer ={updateCustomer}/>
@@ -91,11 +95,27 @@ function Customers() {
        });
     }
     }
+    
+    const addTraining = (training) =>{
+        fetch(API_URL + "/trainings",{
+            method: 'POST',
+            headers: { 'Content-type':'application/json' },
+            body: JSON.stringify(training)
+        })
+        .then(response =>{
+            if(response.ok)
+                getCustomers();
+            else
+                alert("Something went wrong in addition")
+        })
+        .catch(err => console(err))
+    }
+    
 
     return(
         <>
         <AddCustomer addCustomer={addCustomer}/>
-        <div className='ag-theme-material' style={{height:600, width: '100%', margin: 'auto'}}>
+        <div className='ag-theme-material' style={{height:800, width: '100%', margin: 'auto'}}>
             <AgGridReact
                 rowData={customers}
                 columnDefs={columnDefs}

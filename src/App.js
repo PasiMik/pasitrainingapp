@@ -24,7 +24,7 @@ const changePage = (event, page) =>{
       <AppBar position ='static' color="secondary">
         <Toolbar>
             <Typography variant='h6'>Pasi's training centre</Typography>
-            <Tabs textColor = "white" value={page} onChange = {changePage}>
+            <Tabs textColor = "inherit" value={page} onChange = {changePage}>
               <Tab value = "customer" label ="Customers"/>
               <Tab value = "training" label = "Trainings"/>
             </Tabs>
