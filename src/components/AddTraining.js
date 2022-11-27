@@ -56,7 +56,7 @@ function AddTraining(props){
         <DialogTitle>New Training</DialogTitle>
         <DialogContent>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DateTimePicker         
+            <DateTimePicker       
             label="Date and time"
             value={training.date}
             onChange={(newValue) => {
@@ -77,6 +77,7 @@ function AddTraining(props){
            <TextField
             margin="dense"
             label="Duration"
+            type="number"
             fullWidth
             variant="standard"
             value={training.duration}

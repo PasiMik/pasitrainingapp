@@ -1,13 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useRef, useCallback} from 'react';
 import { API_URL } from '../constants';
 import { AgGridReact } from'ag-grid-react';
 import'ag-grid-community/dist/styles/ag-grid.css';
 import'ag-grid-community/dist/styles/ag-theme-material.css';
 import AddCustomer from './AddCustomer';
 import EditCustomer from './EditCustomer';
-import { Button } from '@mui/material';
+import { Button} from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddTraining from './AddTraining';
+import DownloadIcon from '@mui/icons-material/Download';
+
 
 
 function Customers() {
@@ -34,6 +36,9 @@ function Customers() {
       }
 
     ]);
+
+    const gridRef = useRef();
+    
 
 
     const getCustomers = () =>{ 
@@ -110,13 +115,26 @@ function Customers() {
         })
         .catch(err => console(err))
     }
+
+    const onBtnExport = useCallback(() => {
+        gridRef.current.api.exportDataAsCsv(getParams());
+    },[]);
     
+    const getParams =() =>{
+        return{
+            columnKeys:["firstname", "lastname", "streetaddress", "postcode","city","email","phone"],
+            fileName: "Customers"
+        }
+
+    }
 
     return(
         <>
+        <Button variant = "outlined" onClick={onBtnExport} style={{float: "right"}} startIcon={<DownloadIcon/>}>Export customers</Button>
         <AddCustomer addCustomer={addCustomer}/>
         <div className='ag-theme-material' style={{height:800, width: '100%', margin: 'auto'}}>
             <AgGridReact
+                ref={gridRef}
                 rowData={customers}
                 columnDefs={columnDefs}
                 pagination={true}
