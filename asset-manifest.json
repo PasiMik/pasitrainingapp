@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/PasiMik/pasitrainingapp.git/static/css/main.21830d4c.css",
+    "main.js": "/PasiMik/pasitrainingapp.git/static/js/main.8be78c91.js",
+    "static/js/787.5ae2520e.chunk.js": "/PasiMik/pasitrainingapp.git/static/js/787.5ae2520e.chunk.js",
+    "index.html": "/PasiMik/pasitrainingapp.git/index.html",
+    "main.21830d4c.css.map": "/PasiMik/pasitrainingapp.git/static/css/main.21830d4c.css.map",
+    "main.8be78c91.js.map": "/PasiMik/pasitrainingapp.git/static/js/main.8be78c91.js.map",
+    "787.5ae2520e.chunk.js.map": "/PasiMik/pasitrainingapp.git/static/js/787.5ae2520e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.21830d4c.css",
+    "static/js/main.8be78c91.js"
+  ]
+}
