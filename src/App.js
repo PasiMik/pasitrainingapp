@@ -8,6 +8,7 @@ import Tabs from'@mui/material/Tabs';
 import Tab from'@mui/material/Tab';
 import Customers from './components/Customers';
 import Trainings from './components/Trainings';
+import TrainingCalendar from './components/TrainingCalendar';
 import DirectionsRunIcon from '@mui/icons-material/DirectionsRun';
 
 
@@ -27,11 +28,13 @@ const changePage = (event, page) =>{
             <Tabs textColor = "inherit" value={page} onChange = {changePage}>
               <Tab value = "customer" label ="Customers"/>
               <Tab value = "training" label = "Trainings"/>
+              <Tab value = "calendar" label = "Calendar"/>
             </Tabs>
         </Toolbar>
       </AppBar>
       {page === "customer" && <Customers/>}
       {page === "training" && <Trainings/>}
+      {page === "calendar" && <TrainingCalendar/>}
     </div>
   );
 }
